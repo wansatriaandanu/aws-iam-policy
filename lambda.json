@@ -1,0 +1,43 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "LambdaGlobal",
+            "Effect": "Allow",
+            "Action": [
+                "lambda:ListFunctions",
+                "lambda:GetAccountSettings",
+                "iam:ListRoles",
+                "kms:ListAliases",
+                "lambda:ListEventSourceMappings"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "DynamoDBGlobal",
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:DescribeTable",
+                "dynamodb:ListTables",
+                "cloudwatch:GetMetricStatistics"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "LambdaAndDynamoDBRule",
+            "Effect": "Allow",
+            "Action": [
+                "lambda:*",
+                "dynamodb:*"
+            ],
+            "Resource": [
+                "arn:aws:lambda:YOURREGION:ACCOUNTNUMBER:function:your_function_name",
+                "arn:aws:dynamodb:YOURREGION:ACCOUNTNUMBER:table/your_table_name"
+            ]
+        }
+    ]
+}

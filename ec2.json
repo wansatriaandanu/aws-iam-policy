@@ -1,0 +1,35 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "EC2Global",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:Describe*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "EC2EnvironmentInstances",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:MonitorInstances",
+                "ec2:UnmonitorInstances",
+                "ec2:StartInstances",
+                "ec2:RebootInstances",
+                "ec2:StopInstances",
+                "ec2:TerminateInstances"
+            ],
+            "Resource": [
+                "arn:aws:ec2:ap-southeast-1:055378290905:instance/*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "ec2:ResourceTag/elasticbeanstalk:environment-name": "your_env_name"
+                }
+            }
+        }
+    ]
+}

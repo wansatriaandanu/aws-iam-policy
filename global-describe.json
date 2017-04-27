@@ -1,0 +1,26 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "RDSGlobal",
+            "Effect": "Allow",
+            "Action": [
+                "rds:Describe*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "ElasticCacheGlobal",
+            "Effect": "Allow",
+            "Action": [
+                "elasticache:DescribeCacheClusters",
+                "elasticache:DescribeReplicationGroups"
+            ],
+            "Resource": [
+                "*"
+            ]
+        }
+    ]
+}
